@@ -399,12 +399,13 @@ xp: 100
 ```
 
 <!-- Guidelines for contexts: https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
-You already know that we have a time variables in the dataset. 
+You already know that we have a time variables in the dataset. There is also a date variable called `tweet_created_at_date`. If we want to know how much politicans have tweeted across time we can use this variable to group the data.
 
 `@instructions`
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
-- Instruction 1
-- Instruction 2
+1. Use `table(data$tweet_created_at_date)` to find out how man observations there are per date.
+2. Then aggregate the dataset and count the observations but now grouping according to the date.
+3. Finally aggregate the dataset according to two variables (`tweet_created_at_date`, `party`), to find how the members of which party tweeted the most across the days.
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -421,6 +422,16 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 `@sample_code`
 ```{r}
+# 1. table(data$tweet_created_at_date)
+
+
+
+# 2. data %>% group_by(...) %>% summarize(number_of_tweets = n())
+
+
+# 2. data %>% group_by(party, tweet_created_at_date) %>% summarize(...)
+
+
 
 ```
 
