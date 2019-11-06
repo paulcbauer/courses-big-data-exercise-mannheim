@@ -406,11 +406,11 @@ You already know that we have a time variables in the dataset. There is also a d
 1. Use `table(data$tweet_created_at_date)` to find out how man observations there are per date.
 2. Then aggregate the dataset and count the observations but now grouping according to the date.
 3. Finally aggregate the dataset according to two variables (`tweet_created_at_date`, `party`), to find how the members of which party tweeted the most across the days.
+4. Since not all the data is shown in the console try out the `filter` function to only show subsets of the data.
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
-- This is an example hint.
-- This is an example hint.
+- No hints for you.. try again! :-)
 
 `@pre_exercise_code`
 ```{r}
@@ -429,7 +429,12 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 # 2. data %>% group_by(...) %>% summarize(number_of_tweets = n())
 
 
-# 2. data %>% group_by(party, tweet_created_at_date) %>% summarize(...)
+
+# 3. data %>% group_by(party, tweet_created_at_date) %>% summarize(...)
+
+
+
+# 4. data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n()) %>% filter(party == "CDU_CSU")
 
 
 
