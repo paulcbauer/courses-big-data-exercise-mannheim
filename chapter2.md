@@ -465,7 +465,7 @@ We discussed short examples to measure twitter activity and influence. Naturally
 
 `@instructions`
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
-1. First we need to create a variable that tells us whether `Klima` appeared in a tweet or not. We can do this with the `str_detect` function from the `stringr` package (preloaded). Try it on the right.
+1. First we need to create a variable that tells us whether `Klima` appeared in a tweet or not. We can do this with the `str_detect` function from the `stringr` package (preloaded). And we use `data$variable <- ` to create a new variable in the dataset. Try it on the right.
 2. Check out this variable with `data$klimawandel`. It has the values TRUE/FALSE depending on whether the word was in the tweet or not.
 3. Now we can count how frequent the term is among the tweets of different parties again by aggregating the data on to the party level. Among which party's tweets is the Word Klima most common?
 4. Try this for another word. Use the sample code for this.
@@ -485,15 +485,15 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 `@sample_code`
 ```{r}
-# 1. data$klimawandel <- str_detect(data$text, "Klima")
+# 1. data$Klima <- str_detect(data$text, "Klima")
 
 
 
-# 2. data$klimawandel
+# 2. data$Klima
 
 
 
-# 3. data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Klimaword = sum(klimawandel), frequency_of_Klima = number_of_Klimaword/number_of_tweets)
+# 3. data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Klima = sum(Klima), frequency_of_Klima = number_of_Klima/number_of_tweets)
 
 
 
