@@ -11,11 +11,11 @@ key: 2c742278c4
 xp: 100
 ```
 
-Welcome to your first coding exercise. Below you find the instructions. On the right you find example code. On the lower right you have the R console in where you can try out code. 
+Welcome to your first coding exercise. Below you find the instructions. On the right you find example code. On the lower right you have the R console in which you can try out code. 
 
 Write the solution in the panel to the right, try it out with "Run Code". If you think that you found the solution push "Submit answer".
 
-Before we can start analzying data we have to import it into R. Date may come in many different formats. Here we deal with the most commonly used data format ***.csv** (_stands for comma separated values_). You already know that R comes with different packages that include functions to import data. Here we'll work with one of R's basic functions **read.csv()**. The function is part of the **utils** package which is preloaded.
+Before we can start analzying data we have to import it into R. Data may come in many different formats. Here we deal with the most commonly used data format ***.csv** (_stands for comma separated values_). You already know that R comes with different packages that include functions to import data. Here we'll work with one of R's basic functions **read.csv()**. The function is part of the **utils** package which is preloaded.
 
 `@instructions`
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
@@ -27,7 +27,7 @@ Before we can start analzying data we have to import it into R. Date may come in
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
 - Run ?read.csv.
-- Run data <- read.csv("https://assets.datacamp.com/production/repositories/5485/datasets/4581ad84bed2a2226f738097e36ceaf122dd5c30/data.csv").
+- Run data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv").
 
 `@pre_exercise_code`
 ```{r}
@@ -44,7 +44,7 @@ Before we can start analzying data we have to import it into R. Date may come in
 
 
 # 3. Load the dataset: 
-#    Use read.csv("https://assets.datacamp.com/production/repositories/5485/datasets/4581ad84bed2a2226f738097e36ceaf122dd5c30/data.csv").
+#    Use read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv").
 # 	 and assign it to "data": "data <- read.csv(...)".
 
 # 4. ...
@@ -60,10 +60,10 @@ Before we can start analzying data we have to import it into R. Date may come in
 # 2. Assigned something to an object:
 
 # 3. Load the dataset: 
-#    read.csv("https://assets.datacamp.com/production/repositories/5485/datasets/4581ad84bed2a2226f738097e36ceaf122dd5c30/data.csv")
+#    read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv")
 # 	 Assign it to "data": "data <- read.csv(...)".
 
-data <- read.csv("https://assets.datacamp.com/production/repositories/5485/datasets/4581ad84bed2a2226f738097e36ceaf122dd5c30/data.csv")
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv")
 
 # 4. ...
 
@@ -101,7 +101,9 @@ We'll start by exploring the dataset a little. First, we are interested in the d
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5485/datasets/4581ad84bed2a2226f738097e36ceaf122dd5c30/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+library(lubridate)
+data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
 
 `@sample_code`
@@ -144,13 +146,14 @@ xp: 100
 ```
 
 <!-- Guidelines for contexts: https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
-We are also interested in they types of variables that are included in the dataset. There are two ways to do this...
+We are also interested in they types of variables that are included in the dataset. There are several ways to check out those variables...
 
 `@instructions`
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
 1. With `names(data)` we can display the names of all the variables. Try that out.
 2. The function `str()` can be used to find out more about the variables. For instance, what kind of data type the variable is. We also can see how observations (rows) and variables we have in our data. Try that out.
-3. And we can use the `$` sign to directly access a variable in a dataset. Try out typing `data$name`
+3. And we can use the `$` sign to directly access a variable in a dataset. Try out typing `data$name`.
+4. What observations do we find in the rows of the datatset (no code necessary here!).
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -159,7 +162,9 @@ We are also interested in they types of variables that are included in the datas
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5485/datasets/4581ad84bed2a2226f738097e36ceaf122dd5c30/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+library(lubridate)
+data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
 
 `@sample_code`
@@ -169,6 +174,10 @@ data <- read.csv("https://assets.datacamp.com/production/repositories/5485/datas
 
 
 # 2. What type of variable is the first variable? And how many observations and variables are in the dataset?
+
+
+
+# 3. Try data$variablename.
 ```
 
 `@solution`
@@ -192,14 +201,16 @@ xp: 100
 ```
 
 <!-- Guidelines for contexts: https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
-We found out that the dataset is on the level of tweets. In other words, the rows in the dataset are single tweets. But we are interested in summarizing this data. For instance, we probably want to calculate which politician tweets the most or which party has the most tweets.
+We found out that the observations (= rows) in the dataset are tweets. In other words, the rows are single tweets. However, there may be several tweets by the same politician or party in the dataset. And that is what interests us. For instance, we probably want to calculate which politician tweets the most or which party has the most tweets. 
+
+For that we have to aggregate the data. This is done int two steps. First, we group the data (`group_by()`). Second, we summarize the data along these groups (`summarize()`).
 
 `@instructions`
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
 1. Load the dplyr package that contains functions we need for many analyses: `library(dplyr)`.
 2. Count the number of tweets per party by aggregating the dataset with the following command: `data %>% group_by(party) %>% summarize(number_of_tweets = n())`. Did you expect that?
-3. Now, we do the same but order the results according to the number of tweets: `data %>% group_by(party) %>% summarize(number_of_tweets = n()) %>% arrange(desc(number_of_tweets))`.
-4. Using the command from above: What do I need to type to find the politician with the most tweets? (Hint: group by name)
+3. We can use the same command and add `arrange()` to order according to a variable. For instance, order according to the number of tweets.
+4. Using the command from above: What do I need to type to find the politician with the most tweets? (Hint: `group_by(name)`).
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -208,7 +219,9 @@ We found out that the dataset is on the level of tweets. In other words, the row
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5485/datasets/4581ad84bed2a2226f738097e36ceaf122dd5c30/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+library(lubridate)
+data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
 
 `@sample_code`
@@ -225,7 +238,7 @@ data <- read.csv("https://assets.datacamp.com/production/repositories/5485/datas
 
 
 
-# 4. data %>% group_by(party) %>% summarize(number_of_tweets = n()) %>% arrange(desc(number_of_tweets))
+# 4. data %>% group_by(...) %>% summarize(number_of_tweets = n()) %>% arrange(desc(number_of_tweets))
 ```
 
 `@solution`
@@ -249,13 +262,13 @@ xp: 100
 ```
 
 <!-- Guidelines for contexts: https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
-As we discussed one characteristics of Big Data is that it is often temporarily very fine-grained. For instance, it's possible that we collect observations every minute. Fortunately, the twitter dataset we have here contains a time stamp for each tweet that we'll quickly explore here.
+One characteristics of Big Data is that it is often temporarily very fine-grained. For instance, it's possible that we collect observations every minute. Fortunately, the twitter dataset we have here contains a time stamp for each tweet that we'll quickly explore here (some of the functions used here are in the `lubridate` package which is preloaded.
 
 `@instructions`
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
-- The time variable in our dataset is called `tweet_created_at`. You can have a a look at the variable by typing `data$tweet_created_at`. It contains both the data and the time of the tweet.
+- The time variable in our dataset is called `tweet_created_at`. You can have a a look at the variable by typing `data$tweet_created_at`. It contains both the date and the time when the tweet was published.
 - Try to find out what the oldest and the newest tweet is using the functions `min()` and `max()`. That should also tell you how many days are 
-- How many days does the dataset contain?
+- Can you find out how many days the dataset covers?
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -264,11 +277,24 @@ As we discussed one characteristics of Big Data is that it is often temporarily 
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5485/datasets/4581ad84bed2a2226f738097e36ceaf122dd5c30/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+library(lubridate)
+data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
 
 `@sample_code`
 ```{r}
+# 1. Type data$tweet_created_at
+
+
+
+# 2. min(data$tweet_created_at)
+
+
+
+# 3. Try looking at the ouput of day(data$tweet_created_at) or table(date(data$tweet_created_at))!
+
+
 
 ```
 
@@ -293,20 +319,30 @@ xp: 50
 ```
 
 <!-- Guidelines for the question: https://instructor-support.datacamp.com/en/articles/2375523-course-multiple-choice-with-console-exercises. -->
+Finally, we are interested in who the most active politician is. Who tweets the most? 
+
+Try the code on the right and give the answer on the left. Take the functions we used before:
+
+`data %>% group_by(name) %>% summarize(number_of_tweets = n()) %>% ...`
+
+You might need to add the `arrange(desc(...))` function to find that out.
 
 `@possible_answers`
-- [Correct answer 1]
-- Wrong answer 2
-- Wrong answer 3
+- [Johannes Kahrs]
+- Saskia Esken
+- Oliver Luksic
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
 - This is an example hint.
-- This is an example hint.
+- This is an example hint
 
 `@pre_exercise_code`
 ```{r}
-
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+library(lubridate)
+library(dplyr)
+data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
 
 `@sct`
@@ -325,11 +361,16 @@ xp: 50
 ```
 
 <!-- Guidelines for the question: https://instructor-support.datacamp.com/en/articles/2375523-course-multiple-choice-with-console-exercises. -->
+One measure of influence is the number of retweets someone gets. The variable `data$retweet_count` contains the number of retweets per tweet. Now we are interested in how many retweets each politician got and we'll use the function `sum()` for that. You just need to insert the right variable.
+
+`data %>% group_by(name) %>% summarize(sum_of_tweets = sum(...)) %>% arrange(desc(sum_of_tweets))`
+
+Who is the candidate with the most retweets in the time period we study? (Which parties are those people from?)
 
 `@possible_answers`
-- [Correct answer 1]
-- Wrong answer 2
-- Wrong answer 3
+- Manuela Rottmann
+- Martin Renner
+- [Petr Bystron]
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -338,7 +379,10 @@ xp: 50
 
 `@pre_exercise_code`
 ```{r}
-
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+library(lubridate)
+library(dplyr)
+data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
 
 `@sct`
