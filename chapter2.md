@@ -27,7 +27,7 @@ Before we can start analzying data we have to import it into R. Data may come in
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
 - Run ?read.csv.
-- Run data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv").
+- Run data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv").
 
 `@pre_exercise_code`
 ```{r}
@@ -44,7 +44,7 @@ Before we can start analzying data we have to import it into R. Data may come in
 
 
 # 3. Load the dataset: 
-#    Use read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv").
+#    Use read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv").
 # 	 and assign it to "data": "data <- read.csv(...)".
 
 # 4. ...
@@ -60,10 +60,10 @@ Before we can start analzying data we have to import it into R. Data may come in
 # 2. Assigned something to an object:
 
 # 3. Load the dataset: 
-#    read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv")
+#    read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv")
 # 	 Assign it to "data": "data <- read.csv(...)".
 
-data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv")
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv")
 
 # 4. ...
 
@@ -101,7 +101,7 @@ We'll start by exploring the dataset a little. First, we are interested in the d
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
 library(lubridate)
 data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
@@ -162,7 +162,7 @@ We are also interested in they types of variables that are included in the datas
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
 library(lubridate)
 data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
@@ -219,7 +219,7 @@ For that we have to aggregate the data. This is done int two steps. First, we gr
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
 library(lubridate)
 data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
@@ -277,7 +277,7 @@ One characteristics of Big Data is that it is often temporarily very fine-graine
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
 library(lubridate)
 data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
@@ -310,7 +310,7 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 ---
 
-## Analyzing activity
+## Analyzing activity (Number of tweets)
 
 ```yaml
 type: MultipleChoiceExercise
@@ -334,12 +334,11 @@ You might need to add the `arrange(desc(...))` function to find that out.
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
-- This is an example hint.
-- This is an example hint
+- No hints for you.. try again! :-)
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
 library(lubridate)
 library(dplyr)
 data$tweet_created_at <- ymd_hms(data$tweet_created_at)
@@ -352,7 +351,7 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 ---
 
-## Analyzing influence
+## Analyzing influence (Number of retweets)
 
 ```yaml
 type: MultipleChoiceExercise
@@ -361,7 +360,7 @@ xp: 50
 ```
 
 <!-- Guidelines for the question: https://instructor-support.datacamp.com/en/articles/2375523-course-multiple-choice-with-console-exercises. -->
-One measure of influence is the number of retweets someone gets. The variable `data$retweet_count` contains the number of retweets per tweet. Now we are interested in how many retweets each politician got and we'll use the function `sum()` for that. You just need to insert the right variable.
+One measure of influence is the number of retweets someone gets. The variable `retweet_count` contains the number of retweets per tweet. Now we are interested in how many retweets each politician got and we'll use the function `sum()` for that. You just need to insert the right variable.
 
 `data %>% group_by(name) %>% summarize(sum_of_tweets = sum(...)) %>% arrange(desc(sum_of_tweets))`
 
@@ -374,12 +373,11 @@ Who is the candidate with the most retweets in the time period we study? (Which 
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
-- This is an example hint.
-- This is an example hint.
+- No hints for you.. try again! :-)
 
 `@pre_exercise_code`
 ```{r}
-data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/d8b5ad8fd3c8f87bb709f33d927967bbbe07f846/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
 library(lubridate)
 library(dplyr)
 data$tweet_created_at <- ymd_hms(data$tweet_created_at)
@@ -388,4 +386,50 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 `@sct`
 ```{r}
 # Check https://instructor-support.datacamp.com/en/articles/2375523-course-multiple-choice-with-console-exercises on how to write feedback messages for this exercise.
+```
+
+---
+
+## Analyzing activity across time
+
+```yaml
+type: NormalExercise
+key: 137b39b8f5
+xp: 100
+```
+
+<!-- Guidelines for contexts: https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
+You already know that we have a time variables in the dataset. 
+
+`@instructions`
+<!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
+- Instruction 1
+- Instruction 2
+
+`@hint`
+<!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
+- This is an example hint.
+- This is an example hint.
+
+`@pre_exercise_code`
+```{r}
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/e39e5896e6f73b0b8ac7cc2499e258b3a24f339a/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+library(lubridate)
+library(dplyr)
+data$tweet_created_at <- ymd_hms(data$tweet_created_at)
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+
+```
+
+`@sct`
+```{r}
+# Examples of good success messages: https://instructor-support.datacamp.com/en/articles/2299773-exercise-success-messages.
 ```
