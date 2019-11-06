@@ -449,3 +449,66 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```{r}
 # Examples of good success messages: https://instructor-support.datacamp.com/en/articles/2299773-exercise-success-messages.
 ```
+
+---
+
+## Analyzing content
+
+```yaml
+type: NormalExercise
+key: 76c1b28918
+xp: 100
+```
+
+<!-- Guidelines for contexts: https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
+We discussed short examples to measure twitter activity and influence. Naturally, the most interesting thing about tweets is their content. The simplest thing we can do is frequency analysis (counting the frequency of certain words). Below we count the frequency of the word `Klima` across tweets, trying to see whether it is more frequent in some parties than in others.
+
+`@instructions`
+<!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
+1. First we need to create a variable that tells us whether `Klima` appeared in a tweet or not. We can do this with the `str_detect` function from the `stringr` package (preloaded). Try it on the right.
+2. Check out this variable with `data$klimawandel`. It has the values TRUE/FALSE depending on whether the word was in the tweet or not.
+3. Now we can count how frequent the term is among the tweets of different parties again by aggregating the data on to the party level. Among which party's tweets is the Word Klima most common?
+4. Try this for another word. Use the sample code for this.
+
+`@hint`
+<!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
+- No hints for you.. try again! :-)
+
+`@pre_exercise_code`
+```{r}
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/3d4964c14700ec724d0dd96d3fc526d95db224e9/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+library(lubridate)
+library(dplyr)
+library(stringr)
+data$tweet_created_at <- ymd_hms(data$tweet_created_at)
+```
+
+`@sample_code`
+```{r}
+# 1. data$klimawandel <- str_detect(data$text, "Klima")
+
+
+
+# 2. data$klimawandel
+
+
+
+# 3. data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Klimaword = sum(klimawandel), frequency_of_Klima = number_of_Klimaword/number_of_tweets)
+
+
+
+# 4. data$... <- str_detect(data$text, "...")
+#    data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_... = sum(...), frequency_of_... = number_of_.../number_of_tweets)
+
+
+```
+
+`@solution`
+```{r}
+
+```
+
+`@sct`
+```{r}
+# Examples of good success messages: https://instructor-support.datacamp.com/en/articles/2299773-exercise-success-messages.
+```
