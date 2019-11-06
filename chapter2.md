@@ -310,7 +310,7 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 ---
 
-## Analyzing activity (Number of tweets)
+## Analyzing activity: Number of tweets
 
 ```yaml
 type: MultipleChoiceExercise
@@ -351,7 +351,7 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 ---
 
-## Analyzing influence (Number of retweets)
+## Analyzing influence: Number of retweets
 
 ```yaml
 type: MultipleChoiceExercise
