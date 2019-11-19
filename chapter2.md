@@ -410,7 +410,7 @@ You already know that we have a time variables in the dataset. There is also a t
 2. Then aggregate the dataset and count the observations but now grouping according to the date.
 3. Now aggregate the dataset according to two variables (`tweet_created_at_date`, `party`), to find how the members of which party tweeted the most across the days.
 4. Since not all the data is shown in the console try out the `filter` function to only show subsets of the data.
-5. Finally, let's try to draw a quick line plot showing the number of tweets for different parties across time.
+5. Finally, let's try to draw a quick line plot showing the number of tweets for different parties across time. For that we have to store the aggregate data in a new object (let's call it `data_plot`) and use the ggplot function.
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -443,8 +443,9 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 
 
-# 5. Store the data in a new object: data_plot <- data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n())
-# Then use the ggplot command: 
+# 5. Store the data in a new object: data_plot <- data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n()) %>% ungroup()
+
+# Then use the ggplot command: ggplot(data_plot, aes(x = tweet_created_at_date, y = number_of_tweets, group = ..., color = ...)) + geom_line()
 ```
 
 `@solution`
@@ -468,14 +469,14 @@ xp: 100
 ```
 
 <!-- Guidelines for contexts: https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
-We discussed short examples to measure twitter activity and influence. Naturally, the most interesting thing about tweets is their content. The simplest thing we can do is frequency analysis (counting the frequency of certain words). Below we count the frequency of the word `Klima` across tweets, trying to see whether it is more frequent in some parties than in others.
+We discussed short examples to measure twitter activity and influence. Naturally, the most interesting thing about tweets is their content. The simplest thing we can do is frequency analysis (calculating the frequency of certain words). Below we count the frequency of the word `Klima` across tweets, trying to see whether it is more frequent in some parties than in others.
 
 `@instructions`
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
 1. First we need to create a variable that tells us whether `Klima` appeared in a tweet or not. We can do this with the `str_detect` function from the `stringr` package (preloaded). And we use `data$variable <- ` to create a new variable in the dataset. Try it on the right.
 2. Check out this variable with `data$klimawandel`. It has the values TRUE/FALSE depending on whether the word was in the tweet or not.
 3. Now we can count how frequent the term is among the tweets of different parties again by aggregating the data on to the party level. Among which party's tweets is the Word Klima most common?
-4. Try this for another word. Use the sample code for this.
+4. Try this for another word, e.g., "Trump". Use the sample code for this.
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -492,20 +493,22 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 `@sample_code`
 ```{r}
-# 1. data$Klima <- str_detect(data$text, "Klima")
+# 1.
+
+data$Klima <- str_detect(data$text, "Klima")
+
+# 2. Type data$...
 
 
 
-# 2. data$Klima
+# 3. Type:
 
+data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Klima = sum(Klima), frequency_of_Klima = number_of_Klima/number_of_tweets)
 
+# 4. Insert "Trump".
 
-# 3. data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Klima = sum(Klima), frequency_of_Klima = number_of_Klima/number_of_tweets)
-
-
-
-# 4. data$... <- str_detect(data$text, "...")
-#    data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_... = sum(...), frequency_of_... = number_of_.../number_of_tweets)
+data$... <- str_detect(data$text, "...")
+data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_... = sum(...), frequency_of_... = number_of_.../number_of_tweets)
 
 
 ```
