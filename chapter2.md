@@ -152,8 +152,8 @@ We are also interested in they types of variables that are included in the datas
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
 1. With `names(data)` we can display the names of all the variables. Try that out.
 2. The function `str()` can be used to find out more about the variables. For instance, what kind of data type the variable is. We also can see how observations (rows) and variables we have in our data. Try that out.
-3. And we can use the `$` sign to directly access a variable in a dataset. Try out typing `data$name`.
-4. What observations do we find in the rows of the datatset (no code necessary here!).
+3. And we can use the `$` sign to directly access a variable in a dataset. Try out typing `data$nameofvariable` for different variables.
+4. What observations do we find in the rows of the dataset (no code necessary here!).
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -169,15 +169,18 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 `@sample_code`
 ```{r}
-# 1. str(data)
+# 1. Type in names(data)
 
 
 
-# 2. What type of variable is the first variable? And how many observations and variables are in the dataset?
+# 2. str(data)
 
 
 
-# 3. Try data$variablename.
+# 3. and 4. What type of variable is the first variable? And how many observations and variables are in the dataset? Try data$nameofvariable.
+
+
+
 ```
 
 `@solution`
@@ -328,8 +331,8 @@ Try the code on the right and give the answer on the left. Take the functions we
 You might need to add the `arrange(desc(...))` function to find that out.
 
 `@possible_answers`
-- [Johannes Kahrs]
 - Saskia Esken
+- [Johannes Kahrs]
 - Oliver Luksic
 
 `@hint`
@@ -405,8 +408,9 @@ You already know that we have a time variables in the dataset. There is also a t
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
 1. Use `table(data$tweet_created_at_date)` to find out how man observations there are per date.
 2. Then aggregate the dataset and count the observations but now grouping according to the date.
-3. Finally aggregate the dataset according to two variables (`tweet_created_at_date`, `party`), to find how the members of which party tweeted the most across the days.
+3. Now aggregate the dataset according to two variables (`tweet_created_at_date`, `party`), to find how the members of which party tweeted the most across the days.
 4. Since not all the data is shown in the console try out the `filter` function to only show subsets of the data.
+5. Finally, let's try to draw a quick line plot showing the number of tweets for different parties across time.
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -417,6 +421,7 @@ You already know that we have a time variables in the dataset. There is also a t
 data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/3d4964c14700ec724d0dd96d3fc526d95db224e9/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
 library(lubridate)
 library(dplyr)
+library(ggplot2)
 data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```
 
@@ -438,6 +443,8 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 
 
+# 5. Store the data in a new object: data_plot <- data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n())
+# Then use the ggplot command: 
 ```
 
 `@solution`
