@@ -397,6 +397,14 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 `@sct`
 ```{r}
 # Check https://instructor-support.datacamp.com/en/articles/2375523-course-multiple-choice-with-console-exercises on how to write feedback messages for this exercise.
+
+# Example solution: second instruction correct out of three options.
+
+# Corresponding SCT:
+msg1 <- "Not good, try again!"
+msg2 <- "Not quite, give it another shot."
+msg3 <- "Nice one!"
+ex() %>% check_mc(3, feedback_msgs = c(msg1, msg2, msg3))
 ```
 
 ---
