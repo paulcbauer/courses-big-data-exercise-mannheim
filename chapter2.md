@@ -426,7 +426,6 @@ You already know that we have a time variables in the dataset. There is also a t
 2. Then aggregate the dataset and count the observations but now grouping according to the date.
 3. Now aggregate the dataset according to two variables (`tweet_created_at_date`, `party`), to find how the members of which party tweeted the most across the days.
 4. Since not all the data is shown in the console try out the `filter` function to only show subsets of the data.
-5. Finally, let's try to draw a quick line plot showing the number of tweets for different parties across time. For that we have to store the aggregate data in a new object (let's call it `data_plot`) and use the ggplot function.
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -459,7 +458,51 @@ data %>% group_by(party, tweet_created_at_date) %>% summarize(...)
 
 data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n()) %>% filter(party == "CDU_CSU")
 
-# 5. Store the data in a new object: 
+```
+
+`@solution`
+```{r}
+
+```
+
+`@sct`
+```{r}
+# Examples of good success messages: https://instructor-support.datacamp.com/en/articles/2299773-exercise-success-messages.
+```
+
+---
+
+## Visualizing activity over time
+
+```yaml
+type: NormalExercise
+key: af3f24a4a6
+xp: 100
+```
+
+<!-- Guidelines for contexts: https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
+
+`@instructions`
+<!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
+- Let's try to draw a quick line plot showing the number of tweets for different parties across time. For that we have to store the aggregate data in a new object (let's call it `data_plot`) and use the ggplot function. Use the sample code on the right.
+- Which statistic would make more sense than the absolute number of tweets per party (of its party members) across time? No code needed here.
+
+`@hint`
+<!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
+- No hints for you.. try again! :-)
+
+`@pre_exercise_code`
+```{r}
+data <- read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/3d4964c14700ec724d0dd96d3fc526d95db224e9/data.csv", encoding="UTF-8", stringsAsFactors=FALSE)
+library(lubridate)
+library(dplyr)
+library(ggplot2)
+data$tweet_created_at <- ymd_hms(data$tweet_created_at)
+```
+
+`@sample_code`
+```{r}
+# Store the data in a new object: 
 
 data_plot <- data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n()) %>% ungroup()
 
@@ -496,7 +539,7 @@ We discussed short examples to measure twitter activity and influence. Naturally
 1. First we need to create a variable that tells us whether `Klima` appeared in a tweet or not. We can do this with the `str_detect` function from the `stringr` package (preloaded). And we use `data$variable <- ` to create a new variable in the dataset. Try it on the right.
 2. Check out this variable with `data$klimawandel`. It has the values TRUE/FALSE depending on whether the word was in the tweet or not.
 3. Now we can count how frequent the term is among the tweets of different parties again by aggregating the data on to the party level. Among which party's tweets is the Word Klima most common?
-4. Try this with another word namely "Trump". Use the sample code for this.
+4. Try this with another word namely "Trump". Use the sample code on the right for this.
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
