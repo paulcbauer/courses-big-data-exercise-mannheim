@@ -292,7 +292,7 @@ One characteristics of Big Data is that it is often temporarily very fine-graine
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
 - The time variable in our dataset is called `tweet_created_at`. You can have a a look at the variable by typing `data$tweet_created_at`. It contains both the date and the time when the tweet was published.
 - Try to find out what the oldest and the newest tweet is using the functions `min()` and `max()`. That should also tell you how many days are 
-- Can you find out how many days the dataset covers?
+- Can you find out how many days the dataset covers using the `day()` or `table()` functions?
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -308,15 +308,20 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 `@sample_code`
 ```{r}
-# 1. Type data$tweet_created_at
+# 1. 
+
+data$...
 
 
+# 2. 
 
-# 2. min(data$tweet_created_at)
+min(data$...)
 
 
+# 3. 
 
-# 3. Try looking at the ouput of day(data$tweet_created_at) or table(date(data$tweet_created_at))!
+day(data$...)
+table(date(data$...))
 
 
 
