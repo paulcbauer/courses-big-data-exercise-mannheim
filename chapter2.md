@@ -36,18 +36,24 @@ Before we can start analzying data we have to import it into R. Data may come in
 
 `@sample_code`
 ```{r}
-# 1. ?read.csv
+# 1.
 
 ?read.csv
 
-# 2. Assigned something to an object:
+# 2. Assign something to an object and print the object
 
+data_stored <- 2
+data_stored
 
-# 3. Load the dataset: 
-#    Use read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/3d4964c14700ec724d0dd96d3fc526d95db224e9/data.csv").
-# 	 and assign it to "data": "data <- read.csv(...)".
+# 3. 
 
-# 4. ...
+read.csv("https://assets.datacamp.com/production/repositories/5540/datasets/3d4964c14700ec724d0dd96d3fc526d95db224e9/data.csv") # Load the dataset
+
+data <- read.csv(...) # assign it to an object in which you store the data
+
+# 4.
+
+class(...)
 
 ```
 
