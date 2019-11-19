@@ -117,24 +117,24 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 `@sample_code`
 ```{r}
-# 1. The data has been loaded already. Use the functions nrow() and ncol() on the dataset.
+# 1.
 
+nrow(...)
+ncol(...)
 
+# 2.
 
-# 2. Apply the head() function to "data". 
-
-
-
+head(...)
 ```
 
 `@solution`
 ```{r}
-# 1. The data has been loaded already. Use the functions nrow() and ncol() on the dataset.
+# 1.
 
 nrow(data)
 ncol(data)
 
-# 2. Apply the head() function to "data". 
+# 2.
 
 head(data)
 ```
@@ -162,7 +162,7 @@ We are also interested in they types of variables that are included in the datas
 1. With `names(data)` we can display the names of all the variables. Try that out.
 2. The function `str()` can be used to find out more about the variables. For instance, what kind of data type the variable is. We also can see how observations (rows) and variables we have in our data. Try that out.
 3. And we can use the `$` sign to directly access a variable in a dataset. Try out typing `data$nameofvariable` for different variables.
-4. What observations do we find in the rows of the dataset (no code necessary here!).
+4. What observations do we have in the rows of the dataset (no code necessary here!).
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -178,15 +178,20 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 `@sample_code`
 ```{r}
-# 1. Type in names(data)
+# 1.
+
+names(...)
+
+
+# 2.
+
+str(...)
 
 
 
-# 2. str(data)
+# 3. 
 
-
-
-# 3. and 4. What type of variable is the first variable? And how many observations and variables are in the dataset? Try data$nameofvariable.
+data$...
 
 
 
@@ -238,19 +243,26 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 `@sample_code`
 ```{r}
-# 1. library(dplyr)
+# 1. 
+
+library(dplyr) # load package
 
 
+# 2. 
 
-# 2. data %>% group_by(party) %>% summarize(number_of_tweets = n())
-
-
-
-# 3. data %>% group_by(party) %>% summarize(number_of_tweets = n()) %>% arrange(desc(number_of_tweets))
+data %>% group_by(party) %>% summarize(number_of_tweets = n())
 
 
+# 3. 
 
-# 4. data %>% group_by(...) %>% summarize(number_of_tweets = n()) %>% arrange(desc(number_of_tweets))
+data %>% group_by(party) %>% summarize(number_of_tweets = n()) %>% arrange(desc(number_of_tweets))
+
+
+# 4. 
+
+data %>% group_by(...) %>% summarize(number_of_tweets = n()) %>% arrange(desc(number_of_tweets))
+
+
 ```
 
 `@solution`
