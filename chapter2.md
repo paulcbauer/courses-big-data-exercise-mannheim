@@ -352,9 +352,7 @@ Finally, we are interested in who the most active politician is. Who tweets the 
 
 Try the code on the right and give the answer on the left. Take the functions we used before:
 
-`data %>% group_by(name) %>% summarize(number_of_tweets = n()) %>% ...`
-
-You might need to add the `arrange(desc(...))` function to find that out.
+`data %>% group_by(name) %>% summarize(number_of_tweets = n()) %>% arrange(desc(...))`
 
 `@possible_answers`
 - Saskia Esken
@@ -449,7 +447,7 @@ You already know that we have a time variables in the dataset. There is also a t
 `@instructions`
 <!-- Guidelines for instructions https://instructor-support.datacamp.com/en/articles/2375526-course-coding-exercises. -->
 1. Use `table(data$tweet_created_at_date)` to find out how man observations there are per date.
-2. Then aggregate the dataset and count the observations but now grouping according to the date.
+2. Then aggregate the dataset and count the observations but now grouping according to the date variable `tweet_created_at_date`.
 3. Now aggregate the dataset according to two variables (`tweet_created_at_date`, `party`), to find how the members of which party tweeted the most across the days.
 4. Since not all the data is shown in the console try out the `filter` function to only show subsets of the data.
 
@@ -470,7 +468,7 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 ```{r}
 # 1. 
 
-table(data$tweet_created_at_date)
+table(data$...)
 
 # 2. 
 
@@ -482,7 +480,7 @@ data %>% group_by(party, tweet_created_at_date) %>% summarize(...)
 
 # 4. 
 
-data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n()) %>% filter(party == "CDU_CSU")
+data %>% group_by(..., ...) %>% summarize(number_of_tweets = n()) %>% filter(party == "CDU_CSU")
 
 ```
 
@@ -586,13 +584,13 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 data$Klima <- str_detect(data$text, "Klima")
 
-# 2. Type data$...
+# 2.
 
+data$...
 
+# 3. Replace ... with "Klima"
 
-# 3. Type:
-
-data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Klima = sum(Klima), frequency_of_Klima = number_of_Klima/number_of_tweets)
+data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Klima = sum(...), frequency_of_Klima = number_of_Klima/number_of_tweets)
 
 # 4. Insert "Trump".
 
