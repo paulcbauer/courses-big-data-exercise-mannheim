@@ -350,6 +350,15 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 `@sct`
 ```{r}
 # Check https://instructor-support.datacamp.com/en/articles/2375523-course-multiple-choice-with-console-exercises on how to write feedback messages for this exercise.
+if (FALSE) {
+# Example solution: second instruction correct out of three options.
+
+# Corresponding SCT:
+msg1 <- "Not good, try again!"
+msg2 <- "Nice one!"
+msg3 <- "Not quite, give it another shot."
+ex() %>% check_mc(2, feedback_msgs = c(msg1, msg2, msg3))
+}
 ```
 
 ---
@@ -427,25 +436,29 @@ data$tweet_created_at <- ymd_hms(data$tweet_created_at)
 
 `@sample_code`
 ```{r}
-# 1. table(data$tweet_created_at_date)
+# 1. 
 
+table(data$tweet_created_at_date)
 
+# 2. 
 
-# 2. data %>% group_by(...) %>% summarize(number_of_tweets = n())
+data %>% group_by(...) %>% summarize(number_of_tweets = n())
 
+# 3. 
 
+data %>% group_by(party, tweet_created_at_date) %>% summarize(...)
 
-# 3. data %>% group_by(party, tweet_created_at_date) %>% summarize(...)
+# 4. 
 
+data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n()) %>% filter(party == "CDU_CSU")
 
+# 5. Store the data in a new object: 
 
-# 4. data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n()) %>% filter(party == "CDU_CSU")
+data_plot <- data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n()) %>% ungroup()
 
+# Then use the ggplot command: 
 
-
-# 5. Store the data in a new object: data_plot <- data %>% group_by(party, tweet_created_at_date) %>% summarize(number_of_tweets = n()) %>% ungroup()
-
-# Then use the ggplot command: ggplot(data_plot, aes(x = tweet_created_at_date, y = number_of_tweets, group = ..., color = ...)) + geom_line()
+ggplot(data_plot, aes(x = tweet_created_at_date, y = number_of_tweets, group = ..., color = ...)) + geom_line()
 ```
 
 `@solution`
@@ -476,7 +489,7 @@ We discussed short examples to measure twitter activity and influence. Naturally
 1. First we need to create a variable that tells us whether `Klima` appeared in a tweet or not. We can do this with the `str_detect` function from the `stringr` package (preloaded). And we use `data$variable <- ` to create a new variable in the dataset. Try it on the right.
 2. Check out this variable with `data$klimawandel`. It has the values TRUE/FALSE depending on whether the word was in the tweet or not.
 3. Now we can count how frequent the term is among the tweets of different parties again by aggregating the data on to the party level. Among which party's tweets is the Word Klima most common?
-4. Try this for another word, e.g., "Trump". Use the sample code for this.
+4. Try this with another word namely "Trump". Use the sample code for this.
 
 `@hint`
 <!-- Examples of good hints: https://instructor-support.datacamp.com/en/articles/2379164-hints-best-practices. -->
@@ -515,7 +528,20 @@ data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_... = s
 
 `@solution`
 ```{r}
+data$Klima <- str_detect(data$text, "Klima")
 
+# 2. Type data$...
+
+data$Klima
+
+# 3. Type:
+
+data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Klima = sum(Klima), frequency_of_Klima = number_of_Klima/number_of_tweets)
+
+# 4. Insert "Trump".
+
+data$Trump <- str_detect(data$text, "Trump")
+data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Trump = sum(Trump), frequency_of_Trump = number_of_Trump/number_of_tweets)
 ```
 
 `@sct`
