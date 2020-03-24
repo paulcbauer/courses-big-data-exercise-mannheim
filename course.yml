@@ -1,4 +1,4 @@
-title: big-data-exercise
-description: A quick intro to big data using the example of Twitter.
+title: 'Applied Causal Analysis: Exercises'
+description: Exercises accompanying the book/script "Applied Causal Analysis".
 programming_language: r
 from: 'r-base-prod:v1.0.2'
