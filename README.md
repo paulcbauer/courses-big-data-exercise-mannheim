@@ -1,1 +1,1 @@
-# courses-big-data-exercise-mannheim
+# courses-applied-causal-analysis
