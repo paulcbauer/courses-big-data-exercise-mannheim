@@ -612,7 +612,7 @@ data$Klima
 
 data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Klima = sum(Klima), frequency_of_Klima = number_of_Klima/number_of_tweets)
 
-# 4. Insert "Trump".
+# 4. Insert "Trump"..
 
 data$Trump <- str_detect(data$text, "Trump")
 data %>% group_by(party) %>% summarize(number_of_tweets = n(), number_of_Trump = sum(Trump), frequency_of_Trump = number_of_Trump/number_of_tweets)
