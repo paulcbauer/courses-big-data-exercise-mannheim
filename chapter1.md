@@ -11,7 +11,7 @@ key: 6202f71144
 xp: 50
 ```
 
-What does the selection-on-observables assumption fundamentally state?
+What does the selection-on-observables assumption state?
 <!-- Guidelines for the question: https://instructor-support.datacamp.com/en/articles/2375523-course-multiple-choice-with-console-exercises. -->
 
 `@possible_answers`
